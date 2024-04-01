@@ -5,7 +5,7 @@ const suits = ['h', 'd', 'c', 's']
 
 
 /*-------------------------------- Variables --------------------------------*/
-
+let card, dealer, player, score, wager, cash, message
 
 
 /*------------------------ Cached Element References ------------------------*/
