@@ -3,27 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/cardstarter copy.css">
     <link rel="stylesheet" href="./css/style.css">
     <script defer src="./js/app.js"></script>
     <title>Blackjack</title>
 </head>
 <body>
 <h1>Welcome to Blackjack</h1>
-<div id="game">
-    <div class="score">-</div>
-    <div>DEALERS HAND</div>
-    <div class="score">-</div>
-    <div>PLAYERS HAND</div>
-    <div class="card d09 large"></div>
-    <div class ="message">message</div>
-    <button class="dealbtn">DEAL</button>
-    <button class="hitbtn">HIT</button>
-    <button class="staybtn">STAY</button>
-    <input type="number">
-    <button class="betbtn">WAGER AMOUNT</button> 
-</div>
-    
+<div class="game">
+    <h2>DEALERS HAND <span id="dealer-score"></span></h2>
+    <div id="dealer-cards">
+        <img id="hidden" src="./cards/BACK.png">
+    </div>
+    <div class="container">
+        <div class="hand" ="dealer">
+        </div>
+    </div>
+    <h2>YOUR HAND<span id="player-score"></span></h2>
+    <div id="player-cards"></div>
+    <div class="container">
+        <div class="hand" id="player">
+        </div>
+    </div>
+    <div class="container">
+        <div class="buttons">
+            <button class="hitbtn">HIT</button>
+            <button class="STAY">STAY</button>
+        </div>
+    </div>
+<input type="number">
+<button class="betbtn">WAGER AMOUT</button>
+<h2>Cash:</h2>
 
 
     
