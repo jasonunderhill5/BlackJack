@@ -27,6 +27,7 @@ let betBtn = document.getElementById('bet-btn')
 let dealerCards = document.getElementById('dealer-cards')
 let playerCards = document.getElementById('player-cards')
 let dealerScore = document.getElementById('dealer-score')
+let playerScore = document.getElementById('player-score')
 
 
 
