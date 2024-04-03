@@ -24,11 +24,11 @@ let playerSum = 0
 let hitBtn = document.getElementById('hit-btn')
 let stayBtn = document.getElementById('stay-btn')
 let betBtn = document.getElementById('bet-btn')
-let dealerCards = document.getElementById('dealer-cards')
-let playerCards = document.getElementById('player-cards')
-let dealerScore = document.getElementById('dealer-score')
-let playerScore = document.getElementById('player-score')
-
+let DisplaydealerCards = document.getElementById('dealer-cards')
+let DisplayplayerCards = document.getElementById('player-cards')
+let DisplaydealerScore = document.getElementById('dealer-score')
+let DisplayplayerScore = document.getElementById('player-score')
+let cashValue = document.getElementById('cash')
 
 
 /*----------------------------- Event Listeners -----------------------------*/
