@@ -33,6 +33,7 @@ let cashValue = document.getElementById('cash')
 
 
 
+
 /*----------------------------- Event Listeners -----------------------------*/
 
 dealBtn.addEventListener('click', startRound)
@@ -44,3 +45,26 @@ betBtn.addEventListener('click', addBet)
 
 
 /*-------------------------------- Functions --------------------------------*/
+
+function startRound () {
+  deck = []
+
+dealerHand = []
+playerHand = []
+cash = 100
+youWon = false
+dealerWon = false
+dealerBlackjack = false
+playerBlackjack = false
+busted = false
+dealerBusted = false
+dealerTurn = false
+playerTurn = false
+dealerSum = 0
+playerSum = 0
+
+}
+
+function rendor () {
+
+}
