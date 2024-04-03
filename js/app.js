@@ -68,3 +68,11 @@ playerSum = 0
 function rendor () {
 
 }
+
+function hit () {
+
+}
+
+function stay () {
+  
+}
