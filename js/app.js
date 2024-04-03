@@ -21,7 +21,7 @@ let dealerSum = 0
 let playerSum = 0
 
 /*------------------------ Cached Element References ------------------------*/
-let dealbtn = document.getElementsByClassName('deal-btn')
+let dealBtn = document.getElementsByClassName('deal-btn')
 let hitBtn = document.getElementsByClassName('hit-btn')
 let stayBtn = document.getElementsByClassName('stay-btn')
 let betBtn = document.getElementsByClassName('bet-btn')
@@ -34,6 +34,11 @@ let cashValue = document.getElementById('cash')
 
 
 /*----------------------------- Event Listeners -----------------------------*/
+
+dealBtn.addEventListener('click', startRound)
+hitBtn.addEventListener('click', hit)
+stayBtn.addEventListener('click', dealerTurn)
+betBtn.addEventListener('click', addBet)
 
 
 
