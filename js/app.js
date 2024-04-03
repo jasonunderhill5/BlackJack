@@ -21,14 +21,16 @@ let dealerSum = 0
 let playerSum = 0
 
 /*------------------------ Cached Element References ------------------------*/
-let hitBtn = document.getElementById('hit-btn')
-let stayBtn = document.getElementById('stay-btn')
-let betBtn = document.getElementById('bet-btn')
+let dealbtn = document.getElementsByClassName('deal-btn')
+let hitBtn = document.getElementsByClassName('hit-btn')
+let stayBtn = document.getElementsByClassName('stay-btn')
+let betBtn = document.getElementsByClassName('bet-btn')
 let DisplaydealerCards = document.getElementById('dealer-cards')
 let DisplayplayerCards = document.getElementById('player-cards')
 let DisplaydealerScore = document.getElementById('dealer-score')
 let DisplayplayerScore = document.getElementById('player-score')
 let cashValue = document.getElementById('cash')
+
 
 
 /*----------------------------- Event Listeners -----------------------------*/
