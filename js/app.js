@@ -45,7 +45,8 @@ betBtn.addEventListener('click', addBet)
 
 
 /*-------------------------------- Functions --------------------------------*/
-
+function buildDeck () {}
+function shuffleDeck () {}
 function startRound () {
   deck = []
 
@@ -74,5 +75,7 @@ function hit () {
 }
 
 function stay () {
-  
+
 }
+
+function getValue() {}
