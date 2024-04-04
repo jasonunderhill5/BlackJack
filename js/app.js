@@ -3,35 +3,40 @@ const cards = ["dA","dK","dQ","dJ","d10","d09","d08","d07","d06","d05","d04","d0
 
 
 /*-------------------------------- Variables --------------------------------*/
-let cash = 100;
-let bet = 0;
-let deck = [];
-let playerHand = [];
-let dealerHand = [];
-let gamePlaying = false;
+let cash = 100
+let bet = 0
+let deck = []
+let playerHand = []
+let dealerHand = []
+let gamePlaying = false
 
 /*------------------------ Cached Element References ------------------------*/
 const messageEl = document.getElementById('message');
-const playerHandEl = document.getElementById('player-hand');
-const dealerHandEl = document.getElementById('dealer-hand');
-const cashBalanceEl = document.getElementById('cash-balance');
-const currentBetEl = document.getElementById('current-bet');
-const hitBtn = document.getElementById('hit-button');
-const stayBtn = document.getElementById('stay-button');
-const dealBtn = document.getElementById('deal-button');
+const playerHandEl = document.getElementById('player-hand')
+const dealerHandEl = document.getElementById('dealer-hand')
+const cashBalanceEl = document.getElementById('cash-balance')
+const currentBetEl = document.getElementById('current-bet')
+const hitBtn = document.getElementById('hit-button')
+const stayBtn = document.getElementById('stay-button')
+const dealBtn = document.getElementById('deal-button')
 
 
 
 
 /*----------------------------- Event Listeners -----------------------------*/
 
-hitBtn.addEventListener('click', hit);
-standBtn.addEventListener('click', stand);
-dealBtn.addEventListener('click', deal);
+hitBtn.addEventListener('click', hit)
+standBtn.addEventListener('click', stand)
+dealBtn.addEventListener('click', deal)
 
 
 
 
 /*-------------------------------- Functions --------------------------------*/
 
-  
+  function init () {
+    cash = 100
+    bet = 0
+    cards = 0
+    playerHand = []
+  }
