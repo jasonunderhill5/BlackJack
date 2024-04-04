@@ -19,6 +19,7 @@ let dealerTurn = false
 let playerTurn = false
 let dealerSum = 0
 let playerSum = 0
+let gameStatus 
 
 /*------------------------ Cached Element References ------------------------*/
 let dealBtn = document.getElementsByClassName('deal-btn')
@@ -60,9 +61,16 @@ function shuffleDeck () {
 }
 function startRound () {
   // Initialize necessary variables
+  let playerHand = []
+  let dealerHand = []
+  let playerSum = []
+  let dealerSum = []
+  let gameStatus = "in progress"
   // Shuffle the deck using the shuffleDeck() function
+  shuffleDeck()
   // Deal initial cards to the dealer and player
+  
   // Update the game status
 }
-}
+
   
