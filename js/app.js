@@ -51,7 +51,6 @@ dealBtn.addEventListener('click', deal)
 
   function createDeck() {
     deck = cards.slice()
-    console.log("deck created")
   }
 
   function shuffleDeck() {
