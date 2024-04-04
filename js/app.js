@@ -1,76 +1,37 @@
 /*-------------------------------- Constants --------------------------------*/
-const cards = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']
-
-const suits = ['h', 'd', 'c', 's']
+const cards = ["dA","dK","dQ","dJ","d10","d09","d08","d07","d06","d05","d04","d03","d02","hA","hK","hQ","hJ","h10","h09","h08","h07","h06","h05","h04","h03","h02","cA","cK","cQ","cJ","c10","c09","c08","c07","c06","c05","c04","c03","c02","sA","sK","sQ","sJ","s10","s09","s08","s07","s06","s05","s04","s03","s02"]
 
 
 /*-------------------------------- Variables --------------------------------*/
-let deck = []
-let dealerHand = []
-let playerHand = []
-let cash = 100
-let youWon = false
-let dealerWon = false
-let dealerBlackjack = false
-let playerBlackjack = false
-let busted = false
-let dealerBusted = false
-let dealerTurn = false
-let playerTurn = false
-let dealerSum = 0
-let playerSum = 0
-let gameStatus 
+let cash = 100;
+let bet = 0;
+let deck = [];
+let playerHand = [];
+let dealerHand = [];
+let gamePlaying = false;
 
 /*------------------------ Cached Element References ------------------------*/
-let dealBtn = document.getElementsByClassName('deal-btn')
-let hitBtn = document.getElementsByClassName('hit-btn')
-let stayBtn = document.getElementsByClassName('stay-btn')
-let betBtn = document.getElementsByClassName('bet-btn')
-let DisplaydealerCards = document.getElementById('dealer-cards')
-let DisplayplayerCards = document.getElementById('player-cards')
-let DisplaydealerScore = document.getElementById('dealer-score')
-let DisplayplayerScore = document.getElementById('player-score')
-let cashValue = document.getElementById('cash')
+const messageEl = document.getElementById('message');
+const playerHandEl = document.getElementById('player-hand');
+const dealerHandEl = document.getElementById('dealer-hand');
+const cashBalanceEl = document.getElementById('cash-balance');
+const currentBetEl = document.getElementById('current-bet');
+const hitBtn = document.getElementById('hit-button');
+const stayBtn = document.getElementById('stay-button');
+const dealBtn = document.getElementById('deal-button');
 
 
 
 
 /*----------------------------- Event Listeners -----------------------------*/
 
-dealBtn.addEventListener('click', startRound)
-hitBtn.addEventListener('click', hit)
-stayBtn.addEventListener('click', dealerTurn)
-betBtn.addEventListener('click', addBet)
+hitBtn.addEventListener('click', hit);
+standBtn.addEventListener('click', stand);
+dealBtn.addEventListener('click', deal);
 
 
 
 
 /*-------------------------------- Functions --------------------------------*/
-function buildDeck () {
-  for (let i = 0; i < suits.length; i++) {
-    for (let j = 0; j < cards.length; j++) {
-      deck.push(cards[j] + suits[i])
-    }
-  }
-}
-function shuffleDeck () {
-  for (let i = deck.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1))
-    [deck[i], deck[j]] = [deck[j], deck[i]]
-  }
-}
-function startRound () {
-  // Initialize necessary variables
-  let playerHand = []
-  let dealerHand = []
-  let playerSum = []
-  let dealerSum = []
-  let gameStatus = "in progress"
-  // Shuffle the deck using the shuffleDeck() function
-  shuffleDeck()
-  // Deal initial cards to the dealer and player
-  
-  // Update the game status
-}
 
   

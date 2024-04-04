@@ -10,35 +10,22 @@
 </head>
 
 <body>
-<h1>Welcome to Blackjack</h1>
-<div class="game">
-    <h2>DEALERS HAND <span id="dealer-score"></span></h2>
-    <div id="dealer-cards">
-        
+    <div id="game">
+        <h1>Welcom to Blackjack</h1>
+        <div id="dealer-hand"></div>
+        <div id="player-hand"></div>
+        <div id="message"></div>
+
+        <button id="hit-button">HIT</button>
+        <button id="stay-button">STAY</button>
+        <button id="deal-button">DEAL</button>
     </div>
-    <div class="container">
-        <div class="hand" ="dealer">
-        </div>
-    </div>
-    <h2>YOUR HAND<span id="player-score"></span></h2>
-    <div id="player-cards"></div>
-    
-    <div class="container">
-        
-        </div>
-    </div>
-    <div class="container">
-        <div class="buttons">
-            <button class="deal-btn">DEAL</button>
-            <button class="hit-btn">HIT</button>
-            <button class="stay-btn">STAY</button>
-        </div>
-    </div>
-<input type="number">
-<button class="bet-btn">WAGER AMOUT</button>
-<div id="cash">cash:</div>
+    <div id="betting-section">
+        <p>Cash Balance: <span id="cash-balance">100</span></p>
+        <p>Current Bet: <span id="current-bet">0</span></p>
 
 
+    </div>
     
 </body>
 </html>
