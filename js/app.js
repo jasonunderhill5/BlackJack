@@ -9,6 +9,7 @@ let deck = []
 let playerHand = []
 let dealerHand = []
 let gamePlaying = false
+let hit, stay, deal
 
 /*------------------------ Cached Element References ------------------------*/
 const messageEl = document.getElementById('message');
@@ -26,7 +27,7 @@ const dealBtn = document.getElementById('deal-button')
 /*----------------------------- Event Listeners -----------------------------*/
 
 hitBtn.addEventListener('click', hit)
-standBtn.addEventListener('click', stand)
+stayBtn.addEventListener('click', stay)
 dealBtn.addEventListener('click', deal)
 
 
@@ -44,6 +45,17 @@ dealBtn.addEventListener('click', deal)
     updateCashBalance ()
     updateCurrentBet ()
     createDeck ()
-    shuffleDeck
+    shuffleDeck ()
     
   }
+
+  function createDeck() {
+    deck = cards.slice()
+    console.log("deck created")
+  }
+
+  function shuffleDeck() {
+
+  }
+
+  
