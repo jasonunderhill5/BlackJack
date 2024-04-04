@@ -1,5 +1,6 @@
 body {
   text-align: center;
+  
 }
 
 #dealer-cards img {
@@ -8,7 +9,7 @@ body {
   margin: 1px;
 }
 
-#your-cards img {
+#player-cards img {
   height: 150px;
   width: 115px;
   margin: 1px;

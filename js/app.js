@@ -45,37 +45,13 @@ betBtn.addEventListener('click', addBet)
 
 
 /*-------------------------------- Functions --------------------------------*/
-function buildDeck () {}
+function buildDeck () {
+  for (let i = 0; i < suits.length; i++) {
+    for (let j = 0; j < cards.length; j++) {
+      deck.push(cards[j] + suits[i])
+    }
+  }
+}
 function shuffleDeck () {}
 function startRound () {
-  deck = []
-
-dealerHand = []
-playerHand = []
-cash = 100
-youWon = false
-dealerWon = false
-dealerBlackjack = false
-playerBlackjack = false
-busted = false
-dealerBusted = false
-dealerTurn = false
-playerTurn = false
-dealerSum = 0
-playerSum = 0
-
-}
-
-function rendor () {
-
-}
-
-function hit () {
-
-}
-
-function stay () {
-
-}
-
-function getValue() {}
+  
