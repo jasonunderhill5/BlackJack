@@ -57,4 +57,10 @@ dealBtn.addEventListener('click', deal)
 
   }
 
+  function dealCards () {
+    playerHand.push(deck.splice(0,1)[0])
+    dealerHand.push(deck.splice(0,1)[0])
+    playerHand.push(deck.splice(0,1)[0])
+    dealerHand.push(deck.splice(0,1)[0])
+  }
   
