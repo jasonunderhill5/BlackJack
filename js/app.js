@@ -41,4 +41,9 @@ dealBtn.addEventListener('click', deal)
     playerHand = []
     dealerHand = []
     gamePlaying = false
+    updateCashBalance ()
+    updateCurrentBet ()
+    createDeck ()
+    shuffleDeck
+    
   }
