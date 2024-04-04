@@ -59,4 +59,10 @@ function shuffleDeck () {
   }
 }
 function startRound () {
+  // Initialize necessary variables
+  // Shuffle the deck using the shuffleDeck() function
+  // Deal initial cards to the dealer and player
+  // Update the game status
+}
+}
   
