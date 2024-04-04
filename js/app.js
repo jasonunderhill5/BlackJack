@@ -39,4 +39,6 @@ dealBtn.addEventListener('click', deal)
     bet = 0
     cards = 0
     playerHand = []
+    dealerHand = []
+    gamePlaying = false
   }
