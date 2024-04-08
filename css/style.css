@@ -1,6 +1,10 @@
-body {
+html, body {
   background-color: #eaf2ff;
   text-align: center;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
 
 }
 
