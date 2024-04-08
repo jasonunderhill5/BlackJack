@@ -1,4 +1,3 @@
-
 /*-------------------------------- Constants --------------------------------*/
 const cards = ['A' , '2' , '3' , '4' , '5' , '6' , '7' , '8' , '9', 'T', 'J' , 'Q' , 'K']
 const suits = ['h' , 'd' , 'c' , 's'] 
@@ -276,4 +275,3 @@ function dealCards(){
   playerCards.push(deck.splice(0,1)[0])
   dealerCards.push(deck.splice(0,1)[0]) 
 }
-
