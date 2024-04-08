@@ -3,31 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/cardstarter.css">
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="../css/cardstarter.css">
+    <link rel="stylesheet" href="../css/style.css">
     <script defer src="./js/app.js"></script>
     <title>Blackjack</title>
+    
 </head>
-
 <body>
-    <div id="game">
-        <h1>Welcom to Blackjack</h1>
-        <div id="dealer-hand"></div>
-        <div id="player-hand"></div>
-        <div id="message"></div>
+    <header>
+        <button id="restart">restart</button>
+    </header>
+    <!-- header -->
+    <h1 id="title">Welcome To Blackjack</h1>
+    
+    <!-- display -->
+    <div class="game" id="table">
+        <div class="dealer-section">
+            <p class="">Dealer</p>
+            <p class="card-sum" id="dealer-card-sum"></p>
+            <div id="dealer-card-section"></div>
+        </div>
 
-        <button id="hit-button">HIT</button>
-        <button id="stay-button">STAY</button>
-        <button id="deal-button">DEAL</button>
+        <div class="player">
+            <p class="you">You</p>
+            <p class="card-sum" id="player-card-sum"></p>
+            <div id="player-card-section"></div>
+        </div>
+        <div class="betting-area">
+            <div class="status-top" id="current-bet">Current bet:<br>$0</p>
+            <div class="status-bottom" id="cash-value">Cash: </br>$1000</p>
+        </div>
     </div>
-    <div id="betting-section">
-        
-        <p>Current Bet: <span id="current-bet">0</span></p>
-        <input type="number">
-        <p>Cash Balance: <span id="cash-balance">100</span></p>
 
-
+    <!-- status bar -->
+    <div class="status-bar second">
+        <p class="status" id="game-status">Hit deal to start Game</p>
     </div>
     
+    <!-- buttons & inputs  -->
+    <div class="button-section">
+        <div class="player-buttons" id="player-buttons">
+            <!-- <button class="playerBtn" id="sit-down-button">Sit Down</button> -->
+            <div class="mainGameButtons">
+                <button class="playerBtn" id="deal-button">Deal</button>
+                <button class="playerBtn" id="hit-button">Hit</button>
+                <button class="playerBtn" id="stay-button">Stay</button>
+            </div>
+            <div class="betting">
+                <input type="text" id="bet-input" class="betInput second" placeholder="$">
+                <button class="playerBtn second" id="bet-button">Bet</button>
+                <button id="clear-bet">Clear</button>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>
