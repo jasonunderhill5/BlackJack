@@ -1,3 +1,5 @@
+[game screenshot](./images/Screen%20Shot%202024-04-08%20at%205.46.07%20AM.png)
+
 # `Blackjack`
 
 
@@ -9,11 +11,6 @@
 
 [Blackjack](https://neon-salmiakki-beeffa.netlify.app/)
 
-### `screenshots`
-
-![alt text](<Screen Shot 2024-04-08 at 5.46.07 AM>)
-
-![alt text](<Screen Shot 2024-04-08 at 5.47.23 AM>)
 
 # Technologies Used
 
