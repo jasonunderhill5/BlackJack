@@ -1,5 +1,5 @@
 body {
-  background-color: darkgreen;
+  background-color: #eaf2ff;
   text-align: center;
 
 }
@@ -43,4 +43,48 @@ body {
   background-color: #ccc;
   color: #999;
   cursor: not-allowed;
+}
+
+#play-again {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+#play-again:hover {
+  background-color: #0056b3;
+}
+
+#hit-stay-buttons {
+  text-align: center;
+  margin-top: 20px;
+}
+
+#hit-stay-buttons button {
+  padding: 12px 24px;
+  margin: 0 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+#hit-stay-buttons button:hover {
+  background-color: #0056b3;
+}
+
+#hit-stay-buttons button:active {
+  background-color: #003366;
+}
+
+#hit-stay-buttons button:focus {
+  outline: none;
 }
