@@ -1,3 +1,46 @@
+body {
+  background-color: darkgreen;
+  text-align: center;
 
+}
 
+#betting {
+  text-align: center;
+  margin-top: 20px;
+}
 
+#bet-amt {
+  background-color: #f0f0f0;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  display: inline-block;
+}
+
+#bet-amt input[type="text"] {
+  padding: 5px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  width: 100px;
+}
+
+#all-in, #deal {
+  padding: 8px 15px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#all-in:hover, #deal:hover {
+  background-color: #45a049;
+}
+
+#deal[disabled="true"] {
+  background-color: #ccc;
+  color: #999;
+  cursor: not-allowed;
+}
