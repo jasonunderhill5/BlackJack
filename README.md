@@ -11,6 +11,16 @@
 
 ### `screenshots`
 
+![alt text](<Screen Shot 2024-04-08 at 5.46.07 AM>)
 
-![alt text](https://file%2B.vscode-resource.vscode-cdn.net/Users/jasonunderhill/Desktop/Screen%20Shot%202024-04-08%20at%205.46.07%20AM.png?version%3D1712580507158)
+![alt text](<Screen Shot 2024-04-08 at 5.47.23 AM>)
+
+# Technologies Used
+
+- JavaScript
+- HTML
+- CSS
+- CardStarter CSS Library
+
+
 
