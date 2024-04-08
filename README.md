@@ -1,4 +1,4 @@
-[game screenshot](./images/Screen%20Shot%202024-04-08%20at%205.46.07%20AM.png)
+![game](./images/Screen%20Shot%202024-04-08%20at%205.46.07%20AM.png)
 
 # `Blackjack`
 
