@@ -32,5 +32,10 @@ https://docs.google.com/document/d/1KEpOUEfQO2CgNPIuWB39IhOMW0Ct1mksRAdO8AaPlXU/
 
 - more graphic visuals
 
+# Attributes 
+
+- https://realfavicongenerator.net/ (browser favicon)
+- CSS Cardstarter Library
+
 
 
