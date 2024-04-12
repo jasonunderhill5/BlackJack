@@ -1,7 +1,7 @@
 /*-------------------------------- Constants --------------------------------*/
-const cards = ["dA","dQ","dK","dJ","d10","d09","d08","d07","d06","d05","d04","d03","d02","hA","hQ","hK","hJ","h10","h09","h08","h07","h06","h05","h04","h03","h02","cA","cQ","cK","cJ","c10","c09","c08","c07","c06","c05","c04","c03","c02","sA","sQ","sK","sJ","s10","s09","s08","s07","s06","s05","s04","s03","s02"]
+let deck1 = ["dA","dQ","dK","dJ","d10","d09","d08","d07","d06","d05","d04","d03","d02","hA","hQ","hK","hJ","h10","h09","h08","h07","h06","h05","h04","h03","h02","cA","cQ","cK","cJ","c10","c09","c08","c07","c06","c05","c04","c03","c02","sA","sQ","sK","sJ","s10","s09","s08","s07","s06","s05","s04","s03","s02"]
 /*---------------------------- Variables (state) ----------------------------*/
-let deck = []
+let deck2 = []
 let playerHand
 let dealerHand
 let winner = false
@@ -38,7 +38,7 @@ playAgainBtn.addEventListener('click', playAgain)
 
 /*-------------------------------- Functions --------------------------------*/
 function init() {
-  shuffleDeck();
+  shuffleDeck()
   dealerHandEl.innerHTML = ''
   playerHandEl.innerHTML = ''
   playerCardTotal.innerText = 0
@@ -60,18 +60,40 @@ function init() {
 }
 
 function shuffleDeck() {
-  cards = [...cards]
+  deck1 = ["dA","dQ","dK","dJ","d10","d09","d08","d07","d06","d05","d04","d03","d02","hA","hQ","hK","hJ","h10","h09","h08","h07","h06","h05","h04","h03","h02","cA","cQ","cK","cJ","c10","c09","c08","c07","c06","c05","c04","c03","c02","sA","sQ","sK","sJ","s10","s09","s08","s07","s06","s05","s04","s03","s02"]
 }
 
 function getRandomCard() {
-  return Math.floor(Math.random() * (cards.length - 1));
+  return Math.floor(Math.random() * (deck1.length -1))
 }
 
-function dealCards() {
+
+function allIn() {
+  dealBtn.disabled = false
+  bet = bankRoll
+  placeBetEl.value = bet
+  dealCards()
+  }
+
+function handleBet(e) {
+  bet = parseInt(e.target.value)
+  if (bet < bankRoll){
+    dealBtn.disabled = false
+    allInBtn.disabled = false
+    playerMessageEl.textContent = ''
+  } else if(bet > bankRoll) {
+    dealBtn.disabled = true
+    playerMessageEl.textContent = 'INSUFFICIENT FUNDS!'
+  } else if (!bet) {
+    dealBtn.disabled = true
+  }
+}
+
+function dealCards(){
   hitBtn.disabled = false
   placeBetEl.disabled = true
   placeBetMsg.innerText = ''
-  if (cards.length < 4) {
+  if (deck1.length < 4) {
     shuffleDeck()
   }
   bankRoll -= bet
@@ -79,13 +101,14 @@ function dealCards() {
   dealerHandEl.innerHTML = ''
   dealerMessageEl.textContent = ''
   playerMessageEl.textContent = ''
-  dealerHand = [cards.splice(getRandomCard(), 1), cards.splice(getRandomCard(), 1)]
+  dealerHand = [deck1.splice(getRandomCard(), 1), deck1.splice(getRandomCard(), 1)]
   dealerCardTotal.textContent = getCardValue(dealerHand[0])
-  playerHand = [cards.splice(getRandomCard(), 1), cards.splice(getRandomCard(), 1)]
+  playerHand = [deck1.splice(getRandomCard(), 1), deck1.splice(getRandomCard(), 1)]
+  
   renderHands()
   if (pCardTotal === 21) {
     bankRoll += bet * .5
-    playerStay()
+    playerStand()
   }
 }
 
@@ -94,45 +117,48 @@ function renderHands() {
   calcTotal(playerHand)
   dealerHand.forEach((card, idx) => {
     let cardToAppend = document.createElement('div')
-    if (idx === 1) {
-      cardToAppend.classList.add('card', 'back-red', 'large')
-    } else {
-      cardToAppend.classList.add('card', `${card}`, 'large')
-    }
+      if (idx === 1) {
+        cardToAppend.classList.add('card', 'back-red', 'large' )
+      } else {
+        cardToAppend.classList.add('card',`${card}`, 'large')
+      }
     dealerHandEl.appendChild(cardToAppend)
   })
 }
+
 function getCardValue(card) {
   let splitValue = card[0].split('').slice(1).join('')
-  if (splitValue === 'K' || splitValue === 'Q' || splitValue === 'J') {
+    if (splitValue === 'K' || splitValue ==='Q' || splitValue ==='J') {
     return 10
-  } else if (splitValue === 'A') {
+    } else if (splitValue === 'A') {
     return 11
-  } else {
+    }  else {
     return parseInt(splitValue)
-  }
+    }
 }
-
+  
 function playerHit() {
-  playerHand.push(cards.splice(getRandomCard(), 1))
+  playerHand.push(deck1.splice(getRandomCard(), 1))
   displayCards(playerHand)
   calcTotal(playerHand)
   playerCardTotal.textContent = pCardTotal
-  if (pCardTotal > 21) {
-    playerMessageEl.textContent = 'Bust!, YOU LOSE!'
-    hitBtn.disabled = true
-    placeBetEl.disabled = false
-    if (bankRoll === 0) {
-      allInBtn.disabled = true
-      dealBtn.disabled = true
+    if (pCardTotal > 21) {
+      playerMessageEl.textContent = 'Bust!'
+      hitBtn.disabled = true
+      placeBetEl.disabled = false
+      if (bankRoll === 0) {
+        allInBtn.disabled = true
+        dealBtn.disabled = true
+      }
+      displayCards(dealerHand)
+      calcTotal(dealerHand)
+      dealerMessageEl.textContent = 'Dealer Wins'
+    } else {
+      playerMessageEl.textContent = ''
     }
-    displayCards(dealerHand)
-    calcTotal(dealerHand)
-    dealerMessageEl.textContent = 'Dealer Wins, Bet again!'
-  } else {
-    playerMessageEl.textContent = ''
-  }
-}
+} 
+
+
 
 function playerStay() {
   displayCards(dealerHand)
@@ -148,19 +174,21 @@ function playerStay() {
     placeBetEl.disabled = false
   } else if (dCardTotal >= 17 && dCardTotal <= 20) {
     checkForWinner()
-  } else if (dCardTotal <= 16) {
-    let dealerCard = (cards.splice(getRandomCard(), 1))
+  } else if (dCardTotal <= 16){
+    let dealerCard = (deck1.splice(getRandomCard(), 1))
     dealerHand.push(dealerCard)
     displayCards(dealerHand)
     calcTotal(dealerHand)
     setTimeout(() => {
       playerStay()
     }, '1000')
+    
   }
+  disableButtons()
 }
 
 function displayCards(deck) {
-  let element;
+  let element 
   if (deck === playerHand) {
     element = playerHandEl
   } else {
@@ -184,36 +212,36 @@ function calcTotal(deck) {
     }
     total += getCardValue(card)
   })
-  if (hasAce.length > 0) {
-    total = calcAce(total, hasAce.length)
-  }
-  if (deck === playerHand) {
-    pCardTotal = total
-    playerCardTotal.innerHTML = pCardTotal
-  } else {
-    dCardTotal = total
-    dealerCardTotal.innerHTML = dCardTotal
-  }
+    if (hasAce.length > 0){
+      total = calcAce(total, hasAce.length)
+    } 
+    if (deck === playerHand) {
+      pCardTotal = total
+      playerCardTotal.innerHTML = pCardTotal
+    } else {
+      dCardTotal = total
+      dealerCardTotal.innerHTML = dCardTotal
+    }
 }
 
 function calcAce(total, aces) {
   let aceTotal = total
   for (let i = 0; i < aces; i++) {
     if (total > 21){
-      total = aceTotal -= 10
-    }
-  } 
-  return total
+    total = aceTotal -= 10
+    }} 
+    return total
 }
+  
 
 function checkForWinner() {
   if (pCardTotal > dCardTotal) {
-    playerMessageEl.textContent = 'Player wins!'
+    playerMessageEl.textContent = 'You win!'
     dealerMessageEl.textContent = 'Dealer loses'
     bankRoll += bet * 2
     bankEl.innerText = "$" + bankRoll
   } else if (pCardTotal < dCardTotal) {
-    playerMessageEl.textContent = 'Player loses'
+    playerMessageEl.textContent = 'You lose'
     dealerMessageEl.textContent = 'Dealer wins!'
     placeBetEl.value = parseInt(bet)
   } else if (pCardTotal === dCardTotal) {
@@ -226,6 +254,8 @@ function checkForWinner() {
     allInBtn.disabled = true
     dealBtn.disabled = true
   }
+  disableButtons()
+  
 }
 
 function playerBlackjack() {
@@ -234,26 +264,13 @@ function playerBlackjack() {
   calcTotal(dealerHand)
   checkForWinner()
 }
-function allIn() {
-  dealBtn.disabled = false
-  bet = bankRoll
-  placeBetEl.value = bet
-  dealCards()
+
+function disableButtons() {
+  hitBtn.disabled = true
+  stayBtn.disabled = true
+  allInBtn.disabled = true
 }
 
-function handleBet(e) {
-  bet = parseInt(e.target.value)
-  if (bet < bankRoll){
-    dealBtn.disabled = false
-    allInBtn.disabled = false
-    playerMessageEl.textContent = ''
-  } else if(bet > bankRoll) {
-    dealBtn.disabled = true
-    playerMessageEl.textContent = 'INSUFFICIENT FUNDS!'
-  } else if (!bet) {
-    dealBtn.disabled = true
-  }
-}
 function playAgain() {
   init()
 }
