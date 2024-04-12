@@ -91,6 +91,7 @@ function handleBet(e) {
 
 function dealCards(){
   hitBtn.disabled = false
+  stayBtn.disabled = false
   placeBetEl.disabled = true
   placeBetMsg.innerText = ''
   if (deck1.length < 4) {
@@ -108,7 +109,8 @@ function dealCards(){
   renderHands()
   if (pCardTotal === 21) {
     bankRoll += bet * .5
-    playerStand()
+    playerStay()
+    checkForBlackjack
   }
 }
 
@@ -146,6 +148,7 @@ function playerHit() {
       playerMessageEl.textContent = 'Bust!'
       hitBtn.disabled = true
       placeBetEl.disabled = false
+      stayBtn.disabled = true
       if (bankRoll === 0) {
         allInBtn.disabled = true
         dealBtn.disabled = true
@@ -155,6 +158,7 @@ function playerHit() {
       dealerMessageEl.textContent = 'Dealer Wins'
     } else {
       playerMessageEl.textContent = ''
+      checkForBlackjack
     }
 } 
 
@@ -168,10 +172,11 @@ function playerStay() {
     checkForWinner()
   } else if (dCardTotal > 21) {
     dealerMessageEl.textContent = "Bust!"
-    playerMessageEl.textContent = 'Player Wins!'
+    playerMessageEl.textContent = 'You Win!'
     bankRoll += bet * 2
     bankEl.innerText = "$" + bankRoll
     placeBetEl.disabled = false
+    hitBtn.disabled = true
   } else if (dCardTotal >= 17 && dCardTotal <= 20) {
     checkForWinner()
   } else if (dCardTotal <= 16){
@@ -184,7 +189,15 @@ function playerStay() {
     }, '1000')
     
   }
-  disableButtons()
+
+}
+
+function checkForBlackjack() {
+  if (playerHand.length === 2 && pCardTotal === 21){
+    playerMessageEl.textContent = 'Blackjack!'
+    dealerMessageEl.textContent = 'Dealer loses'
+    playerBlackjack
+  }
 }
 
 function displayCards(deck) {
@@ -238,25 +251,35 @@ function checkForWinner() {
   if (pCardTotal > dCardTotal) {
     playerMessageEl.textContent = 'You win!'
     dealerMessageEl.textContent = 'Dealer loses'
-    bankRoll += bet * 2
-    bankEl.innerText = "$" + bankRoll
+    bankRoll += bet * 2;
+    bankEl.innerText = "$" + bankRoll;
+  } else if (pCardTotal === 21) {
+    playerMessageEl.textContent = 'Blackjack!'
+    dealerMessageEl.textContent = 'Dealer loses'
   } else if (pCardTotal < dCardTotal) {
     playerMessageEl.textContent = 'You lose'
     dealerMessageEl.textContent = 'Dealer wins!'
     placeBetEl.value = parseInt(bet)
+    hitBtn.disabled = true
+    stayBtn.disabled = true
   } else if (pCardTotal === dCardTotal) {
     playerMessageEl.textContent = 'Push!'
     bankRoll += parseInt(bet)
     bankEl.innerText = "$" + bankRoll
+    hitBtn.disabled = true
+    stayBtn.disabled = true
   }
   placeBetEl.disabled = false
   if (bankRoll === 0) {
     allInBtn.disabled = true
     dealBtn.disabled = true
+    hitBtn.disabled = true
+    stayBtn.disabled = true
   }
-  disableButtons()
-  
 }
+  
+  
+
 
 function playerBlackjack() {
   playerStay()
@@ -265,11 +288,7 @@ function playerBlackjack() {
   checkForWinner()
 }
 
-function disableButtons() {
-  hitBtn.disabled = true
-  stayBtn.disabled = true
-  allInBtn.disabled = true
-}
+
 
 function playAgain() {
   init()

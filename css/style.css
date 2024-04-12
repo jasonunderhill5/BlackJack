@@ -31,7 +31,7 @@ html, body {
 
 #all-in, #deal {
   padding: 8px 15px;
-  background-color: #4CAF50;
+  background-color: #007BFF;
   color: white;
   border: none;
   border-radius: 3px;
@@ -40,7 +40,7 @@ html, body {
 }
 
 #all-in:hover, #deal:hover {
-  background-color: #45a049;
+  background-color: #0056b3;
 }
 
 #deal[disabled="true"] {
